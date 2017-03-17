@@ -1,0 +1,10 @@
+applications:
+  - name: predix-posgres-demo-eric
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
+    memory: 512MB
+    instance: '1'
+    path: target/demo-0.0.1-SNAPSHOT.jar
+    env:
+      POSTGRES_NAME: predix-postgres-dojoDev
+    services:
+      - predix-postgres-dojoDev

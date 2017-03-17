@@ -1,0 +1,10 @@
+---
+spring:
+  profiles: cloud
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
