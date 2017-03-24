@@ -1,0 +1,19 @@
+---
+spring:
+  profiles: cloud
+
+uaa:
+  clientId: ${CLIENT_ID}
+  clientSecret: ${CLIENT_SECRET}
+  clientBase64Token: ${CLIENT_BASE64_TOKEN}
+  uri: ${UAA_URI}
+  
+timeseries:
+  ingestUri: ${TIMESERIES_INGEST_URI}
+  zoneHeaderName: Predix-Zone-Id
+  instanceId: ${TIMESERIES_INSTANCE_ID}
+  origin:  ${TIMESERIES_QUERY_URI}
+  queryUri: ${TIMESERIES_QUERY_URI}
+
+rabbitmq:
+  tempQueueName: tempQueue
