@@ -12,3 +12,6 @@ applications:
       UAA_URI: >-
         https://acb18ad1-06ae-414e-bfd3-db8a049745ef.predix-uaa.run.aws-usw02-pr.ice.predix.io
       UAA_INSTANCE_ID: acb18ad1-06ae-414e-bfd3-db8a049745ef
+      TIMESERIES_INGEST_URI: wss://gateway-predix-data-services.run.aws-usw02-pr.ice.predix.io/v1/stream/messages
+      TIMESERIES_INSTANCE_ID: 66752333-ecca-4bb7-ab11-8b0c52c26bbf
+      TIMESERIES_QUERY_URI: https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints

@@ -47,16 +47,23 @@ public class QueueController {
 	 */
 	@RequestMapping(value = "/queues", method = RequestMethod.POST)
 	public ResponseEntity<Void> createQueue(@RequestBody String timeserieData) throws JsonParseException, JsonMappingException, IOException {
-		log.debug("Create queue  message for time series data: " + timeserieData);
+		log.info("Create queue  message for time series data: " + timeserieData);
 		publisher.sendTimeseriesMessage(timeserieData);
 		
 		BuildingEntity buildingInfo = mapper.readValue(timeserieData, BuildingEntity.class);
+		if(null == buildingInfo){
+			log.info("ERROR IN PARSING BUILDING ENTITY");
+		}
 		
 		String payloadContent = buildTsRequest(buildingInfo);
 		if(null != payloadContent){
 			// send data to timeseries
+			log.info("INGESTING TIMESERIES........");
 			tsClient.initSession();
 			tsClient.postJson(payloadContent);
+			log.info("INGEST TIMESERIES SUCESSFULLY");
+		}else{
+			log.info("ERROR INGESTING TIMESERIES");
 		}
 		
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
