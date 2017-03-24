@@ -1,0 +1,17 @@
+---
+applications:
+  - name: predix-eat-datasimulator-dev
+    memory: 512M
+    disk_quota: 1G
+    domain: run.aws-usw02-pr.ice.predix.io
+    path: target/predix-eat-datasimulator-1.0.jar
+    env:
+      GATEWAY_URI: https://predix-eat-gateway-dev.run.aws-usw02-pr.ice.predix.io
+      SCHEDULER_TIME: 5000
+      CLIENT_ID: eric_client
+      CLIENT_SECRET: IM_SO_SECRET
+      CLIENT_BASE64_TOKEN: ZXJpY19jbGllbnQ6SU1fU09fU0VDUkVU
+      UAA_URI: https://acb18ad1-06ae-414e-bfd3-db8a049745ef.predix-uaa.run.aws-usw02-pr.ice.predix.io
+
+    services:
+      - predix_uaa_eric_dev

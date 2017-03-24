@@ -1,0 +1,56 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+
+uaa:
+  clientId: eric_client
+  clientSecret: eric_secret
+  clientBase64Token: ZXJpY19jbGllbnQ6ZXJpY19zZWNyZXQ=
+  uri: https://d7f73e42-13aa-4d3c-ac07-91adad9a93b5.predix-uaa.run.aws-usw02-pr.ice.predix.io
+
+gatewayAPI:
+  uri: http://localhost:9091
+
+scheduler:
+  time: 1000
+
+predix:
+  oauth:
+    grantType: client_credentials
+    clientId: eric_client:eric_secret
+  websocket:
+    pool:
+      maxIdle: 5
+      maxActive: 5
+      maxWait: 8000
+      maxInstances: 5
+---
+spring:
+  profiles: cloud
+
+uaa:
+  clientId: ${CLIENT_ID}
+  clientSecret: ${CLIENT_SECRET}
+  clientBase64Token: ${CLIENT_BASE64_TOKEN}
+  uri: ${UAA_URI}
+
+gatewayAPI:
+  uri: ${GATEWAY_URI}
+
+scheduler:
+  time: ${SCHEDULER_TIME}
+
+predix:
+  oauth:
+    grantType: client_credentials
+    clientId: ${CLIENT_ID}
+  websocket:
+    pool:
+      maxIdle: 5
+      maxActive: 5
+      maxWait: 8000
+      maxInstances: 5
