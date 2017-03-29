@@ -9,6 +9,11 @@
   <name>websocket-home Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
+	<properties>
+	    <maven.compiler.source>1.8</maven.compiler.source>
+	    <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+ 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -22,11 +27,20 @@
       <artifactId>javaee-api</artifactId>
       <version>7.0</version>
       <scope>provided</scope>
-     </dependency>
+     </dependency>    
   </dependencies>
   
   <build>
     <finalName>websocket-home</finalName>
+    <plugins>
+	    <plugin>    
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <configuration>
+	            <source>1.8</source>
+	            <target>1.8</target>
+	        </configuration>
+	    </plugin>
+   </plugins>
   </build>
-  
+	
 </project>
