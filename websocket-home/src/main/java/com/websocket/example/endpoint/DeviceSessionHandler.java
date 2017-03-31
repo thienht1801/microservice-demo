@@ -8,22 +8,28 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.json.JsonObject;
 import javax.json.spi.JsonProvider;
 import javax.websocket.Session;
 
 import com.websocket.example.model.Device;
 
-@ApplicationScoped
 public class DeviceSessionHandler {
 		
 	private int deviceId = 0;
 	private Set<Device> deviceSet = new HashSet<Device>();
 	private Set<Session> sessionSet = new HashSet<Session>();
 	
-	public DeviceSessionHandler() {
-		super();
+	private static DeviceSessionHandler instance = null;
+	
+	protected DeviceSessionHandler() {
+	}
+	
+	public static DeviceSessionHandler getInstance() {
+      if(instance == null) {
+         instance = new DeviceSessionHandler();
+      }
+      return instance;
 	}
 
 	public void addSession(Session session){

@@ -1,11 +1,10 @@
 package com.websocket.example.endpoint;
 
 import java.io.StringReader;
+import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
@@ -18,15 +17,14 @@ import javax.websocket.server.ServerEndpoint;
 
 import com.websocket.example.model.Device;
 
-@ApplicationScoped
 @ServerEndpoint("/ws_server")
 public class DeviceWebSocketServer {
 	
 	
-	private DeviceSessionHandler handler = new DeviceSessionHandler();
+	private DeviceSessionHandler handler = DeviceSessionHandler.getInstance();
 	
 	@OnOpen
-	public void open(Session session){
+	public void open(Session session){		
 		handler.addSession(session);
 	}
 	
