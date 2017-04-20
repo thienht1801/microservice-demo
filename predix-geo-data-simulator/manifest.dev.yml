@@ -1,0 +1,12 @@
+applications:
+  - name: predix-geo-data-simulator
+    memory: 512M
+    instances: '1'   
+    buildpack: java_buildpack
+    path: target/predix-geo-data-simulator-0.0.1-SNAPSHOT.jar
+    CLIENT_ID: analytics_client
+    CLIENT_SECRET: secret
+    CLIENT_BASE64_TOKEN: YW5hbHl0aWNzX2NsaWVudDpzZWNyZXQ=
+    UAA_URI: https://bc59f9ee-7a17-4d01-879d-f9d471f2696c.predix-uaa.run.aws-usw02-pr.ice.predix.io
+    GATEWAY_URI: https://predix-geo-gateway.run.aws-usw02-pr.ice.predix.io
+    SCHEDULER_TIME: 100000
