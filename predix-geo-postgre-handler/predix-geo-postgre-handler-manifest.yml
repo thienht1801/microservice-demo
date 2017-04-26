@@ -1,0 +1,15 @@
+applications:
+- name: predix-geo-postgre-handler-dev
+  instances: 1
+  memory: 512M
+  disk_quota: 512M
+  buildpack: java-buildpack
+  env:
+    BASE_64: YW5hbHl0aWNzX2NsaWVudDpzZWNyZXQ=
+    PREDIX_POSTGRES_NAME: my-postgres
+    PREDIX_UAA_NAME: my-uaa
+    UAA_URL: https://bc59f9ee-7a17-4d01-879d-f9d471f2696c.predix-uaa.run.aws-usw02-pr.ice.predix.io
+  services:
+  - my-postgres
+  - my-uaa
+  path: target/predix-geo-postgre-handler-0.0.1-SNAPSHOT.jar

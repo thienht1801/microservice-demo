@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
+  jpa:
+    database:  POSTGRESQL
+    hibernate: 
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+
+uaa:
+  clientId: analytics_client
+  clientSecret: secret
+  uri: https://bc59f9ee-7a17-4d01-879d-f9d471f2696c.predix-uaa.run.aws-usw02-pr.ice.predix.io
+  clientBase64: YW5hbHl0aWNzX2NsaWVudDpzZWNyZXQ=
+
+batch:
+  limit: 5
+---
+spring:
+  profiles: cloud
+  
+  jpa: 
+    hibernate: 
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+      
+  datasource:
+    test-on-borrow: true
+    maxActive: 2
+  
+batch:
+  limit: 5
+
+uaa:
+  clientId: ${CLIENT_ID}
+  clientSecret: ${CLIENT_SECRET}
+  clientBase64: ${BASE_64}
+  uri: ${UAA_URL}
