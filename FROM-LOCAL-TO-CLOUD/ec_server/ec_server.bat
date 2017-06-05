@@ -1,0 +1,1 @@
+ecagent_windows_sys.exe -mod client -aid qsQVL5 -hst wss://predix-ec-spike-client-gateway.run.aws-usw02-pr.ice.predix.io/agent -lpt 7990 -cid predix_client -csc IM_SO_SECRET -oa2 https://8acdb88d-40df-4c41-a89b-1398ee1916a4.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token -dur 30000 -dbg -tid 7ijUyC

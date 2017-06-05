@@ -1,0 +1,8 @@
+applications:
+- name: predix-ec-spike-client-gateway
+  instances: 1
+  memory: 256M
+  disk_quota: 1024M
+  buildpack: https://github.com/cloudfoundry/binary-buildpack.git
+  command: bash ./ec.sh
+  stack: cflinuxfs2
